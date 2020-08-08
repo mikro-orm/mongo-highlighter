@@ -1,0 +1,7 @@
+db.getCollection('author').insertOne({ createdAt: ISODate('2020-01-01T12:00:00Z'), updatedAt: ISODate('2020-01-01T12:00:00Z'), foo: 'bar', name: 'Jon Snow', email: 'snow@wall.st', termsAccepted: false }, { session: '[ClientSession]' });
+---
+db.getCollection('book-tag').insertOne({ created_at: ISODate('2020-01-01T12:00:00Z'), meta: { foo: 'bar', baz: 123, lol: true }, foo: 'bar', name: 'Jon Snow', email: 'snow@wall.st', termsAccepted: false }, { session: '[ClientSession]' });
+---
+db.getCollection('book_tag').insert({ createdAt: ISODate('2020-01-01T12:00:00Z'), updatedAt: ISODate('2020-01-01T12:00:00Z'), foo: 'bar', name: 'Jon Snow', email: 'snow@wall.st', termsAccepted: false }, { session: '[ClientSession]' });
+---
+db.getCollection('book_tag').updateMany({ $set: { updatedAt: ISODate('2020-01-01T12:00:00Z'), foo: 123, name: 'Jon Snow', email: 'snow@wall.st', termsAccepted: false } }, { session: '[ClientSession]' });
