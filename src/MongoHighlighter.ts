@@ -2,9 +2,11 @@ import c from 'ansi-colors';
 import { Token, Tokenizer } from './Tokenizer';
 import { TokenType, HighlightSubject, TOKEN_TYPE_TO_HIGHLIGHT } from './enums';
 
+type Theme = { [key in HighlightSubject]?: c.StyleFunction };
+
 export class MongoHighlighter {
 
-  static readonly DEFAULT_THEME = {
+  static readonly DEFAULT_THEME: Theme = {
     [HighlightSubject.QUOTE]: c.yellow,
     [HighlightSubject.BACKTICK_QUOTE]: c.yellow,
     [HighlightSubject.BOUNDARY]: c.reset,
@@ -16,7 +18,7 @@ export class MongoHighlighter {
 
   private readonly tokenizer = new Tokenizer();
 
-  constructor(private readonly theme: { [K in keyof typeof HighlightSubject]?: string } = {}) {
+  constructor(private readonly theme: Theme = {}) {
     this.theme = { ...MongoHighlighter.DEFAULT_THEME, ...this.theme };
   }
 
@@ -46,11 +48,14 @@ export class MongoHighlighter {
   }
 
   private colorize(type: TokenType, value: string): string {
-    if (!TOKEN_TYPE_TO_HIGHLIGHT[type] || !this.theme[TOKEN_TYPE_TO_HIGHLIGHT[type]]) {
+    const subject = TOKEN_TYPE_TO_HIGHLIGHT[type];
+    const fct = subject && this.theme[subject];
+
+    if (!fct) {
       return value;
     }
 
-    return this.theme[TOKEN_TYPE_TO_HIGHLIGHT[type]](value);
+    return fct(value);
   }
 
 }

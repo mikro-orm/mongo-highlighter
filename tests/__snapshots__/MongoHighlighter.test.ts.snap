@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`MongoHighlighter highlights query: db.getCollection('author').insertOne({ createdAt: ISODate('2020-01-01T12:00:00Z'), updatedAt: ISODate('2020-01-01T12:00:00Z'), foo: 'bar', name: 'Jon Snow', email: 'snow@wall.st', termsAccepted: false }, { session: '[ClientSession]' }); 1`] = `"db[0m.[0mgetCollection([33m'author'[39m)[0m.[0minsertOne({ [36mcreatedAt[39m[0m:[0m ISODate([33m'2020-01-01T12:00:00Z'[39m)[0m,[0m [36mupdatedAt[39m[0m:[0m ISODate([33m'2020-01-01T12:00:00Z'[39m)[0m,[0m [36mfoo[39m[0m:[0m [33m'bar'[39m[0m,[0m [36mname[39m[0m:[0m [33m'Jon Snow'[39m[0m,[0m [36memail[39m[0m:[0m [33m'snow@wall.st'[39m[0m,[0m [36mtermsAccepted[39m[0m:[0m [32mfalse[39m }[0m,[0m { [36msession[39m[0m:[0m [33m'[ClientSession]'[39m })[0m;[0m"`;
 
