@@ -20,7 +20,7 @@ export enum HighlightSubject {
   LITERAL = 'literal',
 }
 
-export const TOKEN_TYPE_TO_HIGHLIGHT = {
+export const TOKEN_TYPE_TO_HIGHLIGHT: Partial<Record<TokenType, HighlightSubject>> = {
   [TokenType.BOUNDARY]: HighlightSubject.BOUNDARY,
   [TokenType.WORD]: HighlightSubject.WORD,
   [TokenType.BACKTICK_QUOTE]: HighlightSubject.BACKTICK_QUOTE,
